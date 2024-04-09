@@ -1,17 +1,13 @@
-document.getElementById('meuFormulario').addEventListener('submit', function(event) {
-    // Evita que o formulário seja enviado
-    event.preventDefault();
+function validateForm() {
+    var numberA = parseInt(document.getElementById("numberA").value);
+    var numberB = parseInt(document.getElementById("numberB").value);
+    var messageElement = document.getElementById("message");
 
-    // Obtém os valores dos campos de entrada
-    var numeroA = parseInt(document.getElementById('numeroA').value);
-    var numeroB = parseInt(document.getElementById('numeroB').value);
-
-    // Valida se o número B é maior que o número A
-    if (numeroB > numeroA) {
-        // Se for válido, envia o formulário
-        this.submit();
+    if (numberB > numberA) {
+        messageElement.textContent = "Formulário válido! O número B é maior que o número A.";
+        messageElement.className = "success-message";
     } else {
-        // Se não for válido, exibe uma mensagem de erro
-        document.getElementById('mensagemErro').innerText = "Número B deve ser maior que o número A.";
+        messageElement.textContent = "Erro: O número B deve ser maior que o número A.";
+        messageElement.className = "error-message";
     }
-});
+};

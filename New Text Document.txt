@@ -1,0 +1,76 @@
+const form = document.getElementById('form');
+const nomeCompleto = document.getElementById('nome-Completo');
+let formEValido = false;    
+
+function validaNome(nomeCompleto){
+ const nomeComoArray = nomeCompleto.split('');
+ return  nomeComoArray.length >= 2;
+}
+
+form.addEventListener('submit',function(e) {         
+let formEValido = false;
+    e.preventDefault();
+const nomeCompleto = document.getElementById('nome-completo');
+const senhaDoFormulario = document.getElementById('senha-do-formulario');
+const emailDoFormulario = document.getElementById('email-do-formulario');
+const mensagemSucesso = `Montante de:  ${nomeCompleto.value}  depositando para o cliente: ${senhaDoFormulario.value} -  conta: ${emailDoFormulario.value}` ;
+
+
+if (formEValido) {
+    const containerMensagemSucesso = document.querySelector('.sccmsg');
+    containerMensagemSucesso.innerHTML = mensagemSucesso;
+    containerMensagemSucesso.style.display = 'block';
+
+nomeCompleto.value = '';
+senhaDoFormulario.value = '';
+emailDoFormulario.value = '';
+
+} else {
+    nomeCompletostyle.border ='1px solid red' ;
+    document.querySelector('.ermsg').style.display = 'block' ;
+}
+})
+
+nomeCompleto.addEventListener('keyup', function(e) {
+    console.log(e);
+    formEValido = validaNome (e.target.value);
+    if (!formEValido) {
+        nomeCompleto.classList.add('error');
+         nomeCompleto.style.border ='1px solid red' ;
+         document.querySelector('.ermsg').style.display = 'block' ;
+        }else{
+            nomeCompleto.classList.remove('error');
+         document.querySelector('.ermsg').style.display = 'none' ;
+        }
+        }
+);
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="./formulario.css">
+</head>
+<body>
+    <div>
+    <header>
+        <h1>Formulário</h1>
+    </header>
+    <form id="form">
+        <input id="nome-completo" type="text" placeholder="Nome completo" required />
+        <p class="ermsg">
+            O nome precisa ser completo
+        </p>
+        <input id="email" type="text" placeholder="email" required />
+        <input id="senha" type="text" placeholder="senha" required />
+        <textarea id="descricao" placeholder="Descrição(opcional)"></textarea>
+        <button type="submit">Cadastrar</button>
+    </form>
+    <p class="sccmsg">
+    </p>
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
