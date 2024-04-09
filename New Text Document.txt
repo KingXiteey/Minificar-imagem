@@ -1,76 +1,43 @@
-const form = document.getElementById('form');
-const nomeCompleto = document.getElementById('nome-Completo');
-let formEValido = false;    
-
-function validaNome(nomeCompleto){
- const nomeComoArray = nomeCompleto.split('');
- return  nomeComoArray.length >= 2;
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
 }
 
-form.addEventListener('submit',function(e) {         
-let formEValido = false;
-    e.preventDefault();
-const nomeCompleto = document.getElementById('nome-completo');
-const senhaDoFormulario = document.getElementById('senha-do-formulario');
-const emailDoFormulario = document.getElementById('email-do-formulario');
-const mensagemSucesso = `Montante de:  ${nomeCompleto.value}  depositando para o cliente: ${senhaDoFormulario.value} -  conta: ${emailDoFormulario.value}` ;
-
-
-if (formEValido) {
-    const containerMensagemSucesso = document.querySelector('.sccmsg');
-    containerMensagemSucesso.innerHTML = mensagemSucesso;
-    containerMensagemSucesso.style.display = 'block';
-
-nomeCompleto.value = '';
-senhaDoFormulario.value = '';
-emailDoFormulario.value = '';
-
-} else {
-    nomeCompletostyle.border ='1px solid red' ;
-    document.querySelector('.ermsg').style.display = 'block' ;
+form {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    width: 300px;
+    margin: 50px auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
-})
 
-nomeCompleto.addEventListener('keyup', function(e) {
-    console.log(e);
-    formEValido = validaNome (e.target.value);
-    if (!formEValido) {
-        nomeCompleto.classList.add('error');
-         nomeCompleto.style.border ='1px solid red' ;
-         document.querySelector('.ermsg').style.display = 'block' ;
-        }else{
-            nomeCompleto.classList.remove('error');
-         document.querySelector('.ermsg').style.display = 'none' ;
-        }
-        }
-);
+label {
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário</title>
-    <link rel="stylesheet" href="./formulario.css">
-</head>
-<body>
-    <div>
-    <header>
-        <h1>Formulário</h1>
-    </header>
-    <form id="form">
-        <input id="nome-completo" type="text" placeholder="Nome completo" required />
-        <p class="ermsg">
-            O nome precisa ser completo
-        </p>
-        <input id="email" type="text" placeholder="email" required />
-        <input id="senha" type="text" placeholder="senha" required />
-        <textarea id="descricao" placeholder="Descrição(opcional)"></textarea>
-        <button type="submit">Cadastrar</button>
-    </form>
-    <p class="sccmsg">
-    </p>
-    </div>
-    <script src="./main.js"></script>
-</body>
-</html>
+input[type="number"], input[type="submit"] {
+    padding: 8px;
+    margin-bottom: 10px;
+    width: calc(100% - 20px);
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+#mensagemErro {
+    color: red;
+    margin-top: 10px;
+}
