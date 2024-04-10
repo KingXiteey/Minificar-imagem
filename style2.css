@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-color: #e7e7e7;
+    padding-top: 100px;
+}
+
+header{
+    display: flex;
+    align-items: center;
+}
+header img {
+   height: 36px;
+   margin-right: 16px;
+}
+
