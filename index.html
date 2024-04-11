@@ -7,19 +7,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="styleseet" href="./style2.css" />
+    <link rel="stylesheet" href="./style2.css" />
 </head>
 <body>
-    <header>
+    <div class="container">
+        <header>
             <img src="./images/logo.png" alt= "Diploma" >
             <h1>Calculadora de média</h1>
     </header>
-    <form>
-        <input type="text" required placeholder="Nome da atividade" />
-        <input type="number" required placeholder="Nota da atividade" min="0" max="10" />
+    <form id="form-atividade">
+        <input type="text" id="nome-atividade" placeholder="Nome da atividade" />
+        <input type="number" id="nota-atividade" required placeholder="Nota da atividade" min="0" max="10" />
         <button type="submit">Adicionar +</button>
     </form>
-    <table>
+    <table cellspacing="0">
         <thead>
             <tr>
                 <th>
@@ -28,26 +29,24 @@
                 <th>
                     Nota da atividade
                 </th>
+                <th>Aprovado?</th>
             </tr>
         </thead>
         <tbody>
-                <td>   Atividade 1</td>
-                <td>7</td>
-                <td><img src="./images/aprovado.png" alt="Emoji Festejando" /> </td>
         </tbody>
         <tfoot>
             <tr>
                 <td>
                     Média final
                 </td>
-                <td>
-                    7
+                <td id="media-final-valor">
+                    ---
                 </td>
-                <td>
-                    Aprovado
+                <td id="media-final-resultado"><span class="resultado aprovado" >--- </span>
                 </td>
             </tr>
         </tfoot>
     </table>
-    
+    </div>
+    <script src="./main.js"></script>
 </html>
