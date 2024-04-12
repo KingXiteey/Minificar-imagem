@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulário de Contatos</title>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    th, td {
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    form {
+        margin-bottom: 20px;z
+    }
+    input[type="text"] {
+        padding: 8px;
+        width: 200px;
+        margin-right: 10px;
+    }
+    input[type="submit"] {
+        padding: 8px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<h2>Formulário de Contatos</h2>
+
+<form id="formContato">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <label for="telefone">Telefone:</label>
+    <input type="text" id="telefone" name="telefone" required>
+    <input type="submit" value="Cadastrar">
+</form>
+
+<table id="tabelaContatos">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Telefone</th>
+        </tr>
+    </thead>
+    <tbody id="corpoTabela">
+        <!-- Linhas da tabela serão adicionadas aqui -->
+    </tbody>
+</table>
+
+<script>
+document.getElementById("formContato").addEventListener("submit", function(event) {
+    event.preventDefault(); // Impede o envio do formulário padrão
+
+    // Obtém os valores do formulário
+    var email = document.getElementById("email").value;
+    var telefone = document.getElementById("telefone").value;
+
+    // Cria uma nova linha na tabela
+    var tabela = document.getElementById("corpoTabela");
+    var novaLinha = tabela.insertRow();
+    var celulaEmail = novaLinha.insertCell(0);
+    var celulaTelefone = novaLinha.insertCell(1);
+    celulaEmail.textContent = email;
+    celulaTelefone.textContent = telefone;
+
+    // Limpa os campos do formulário
+    document.getElementById("email").value = "";
+    document.getElementById("telefone").value = "";
+});
+</script>
+
+</body>
+</html>
