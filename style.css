@@ -1,0 +1,14 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.completed {
+  text-decoration: line-through;
+}

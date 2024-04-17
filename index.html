@@ -1,38 +1,22 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Formulário de Contatos</title>
-<link rel="stylesheet" href="./css.css">
-
-<body>
-
-<h2>Formulário de Contatos</h2>
-
-<form id="formContato">
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-    <label for="telefone">Telefone:</label>
-    <input type="text" id="telefone" name="telefone" required>
-    <input type="submit" value="Cadastrar">
-</form>
-
-<table id="tabelaContatos">
-    <thead>
-        <tr>
-            <th>Email</th>
-            <th>Telefone</th>
-        </tr>
-    </thead>
-    <tbody id="corpoTabela">
-        <!-- Linhas da tabela serão adicionadas aqui -->
-    </tbody>
-<script src="./main.js" ></script>
-</table>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Tarefas</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
-
-
-
+<body>
+  <div class="container">
+    <h1>Lista de Tarefas</h1>
+    <form id="task-form">
+      <input type="text" id="task-input" placeholder="Digite sua tarefa">
+      <button type="submit">Adicionar Tarefa</button>
+    </form>
+    <ul id="task-list">
+    </ul>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./main.js"></script>
 </body>
 </html>
